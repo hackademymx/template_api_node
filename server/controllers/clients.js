@@ -45,7 +45,6 @@ const addClient = async (req, res) => {
     const client = await models.clients.create({
       name: body.name,
       lastName: body.lastName,
-      email: body.email,
       phone: body.phone,
     });
 

@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
   clients.init(
     {
       phone: DataTypes.STRING,
-      email: { type: DataTypes.STRING, validate: { isEmail: true } },
       name: DataTypes.STRING,
       lastName: DataTypes.STRING,
       statusDelete: DataTypes.BOOLEAN,

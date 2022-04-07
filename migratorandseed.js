@@ -1,4 +1,4 @@
-import db from "./config/database";
+const { db } = require("./config/database");
 const Sequelize = require("sequelize");
 const path = require("path");
 const Umzug = require("umzug");

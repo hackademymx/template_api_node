@@ -25,7 +25,7 @@ USER node
 
 WORKDIR /home/node/app
 
-COPY COPY package.json package-lock.json* ./
+COPY --chown=node:node package.json package-lock.json* ./
 
 ENV PATH=/app/node_modules/.bin:$PATH
 

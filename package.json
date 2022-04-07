@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "npm run migrateandseed && nodemon index.js",
+    "start": "npm run migrateandseed && node index.js"
   },
   "author": "LizethRuiz",
   "license": "ISC",

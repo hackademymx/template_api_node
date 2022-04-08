@@ -11,12 +11,6 @@ module.exports = {
       phone: {
         type: Sequelize.STRING,
       },
-      email: {
-        type: Sequelize.STRING,
-        validate: {
-          isEmail: true,
-        },
-      },
       name: {
         type: Sequelize.STRING,
       },

@@ -47,3 +47,33 @@ _Para ejecutar las migraciones necesitamos tener ya creada la base de datos, sus
 ```
 npx sequelize db:migrate --url "postgres://user:password@localhost:5432/bd_name"
 ```
+
+### MANEJO DE DOCKER
+
+_Para trabajar el contenedor de docker necesitamos tener los archivos de Dockerfile y docker-compose.yml_
+
+### Construir el contenedor
+
+```
+docker-compose -f docker-compose.yml up --build
+```
+
+_Una vez se construiye, solo tendriamos que estar levantando el mismo de la siguiente manera_
+
+```
+docker-compose -f docker-compose.yml up
+```
+
+### Ejecutar migraciones en el contenedor
+
+_Cuando se trabaja con contenedores las migraciones se tendrán que ejecutar desde el root del contendor, para ello tendríamos que entrar a root_
+
+```
+docker exec -ti -u root [container id] /bin/bash
+```
+
+_Una vez que estamos en root del contenedor ejecutamos las migraciones_
+
+```
+npx sequelize db:migrate --url "postgres://user:password@postgres:5432/bd_name"
+```

@@ -1,7 +1,9 @@
-const { clients, saucers, orders } = require("../controllers");
+const { clients, saucers, orders, users } = require("../controllers");
 const { validCreateUpClient } = require("../validators/clients");
 const { validCreateUpSaucer } = require("../validators/saucers");
 const { validCreateOrder } = require("../validators/orders");
+const { validSignUp } = require("../validators/users");
+const { verifyToken } = require("../middlewares/auth");
 
 const { Router } = require("express");
 
@@ -9,7 +11,7 @@ const router = Router();
 
 router
   .route("/clients")
-  .get(clients.getClients)
+  .get(verifyToken, clients.getClients)
   .post(validCreateUpClient, clients.addClient);
 
 router
@@ -35,5 +37,11 @@ router
   .post(validCreateOrder, orders.addOrder);
 
 router.route("/orders/:id").get(orders.getOrderById).delete(orders.deleteOrder);
+
+router.post("/auth/signup", validSignUp, users.addUser);
+
+router.post("/auth/login", validSignUp, users.login);
+
+router.post("/auth/accessToken", users.generateAccesToken);
 
 module.exports = { router };

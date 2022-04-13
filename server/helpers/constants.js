@@ -13,4 +13,7 @@ module.exports = {
   saucerRequired: "El platillo es requerido",
   orderNotFound: "No se encontró la orden",
   orderDeleted: "Se ha eliminado la orden",
+
+  emailRequired: "El correo es requerido",
+  passwordRequired: "La contraseña es requerida",
 };

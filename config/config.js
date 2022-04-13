@@ -10,5 +10,9 @@ module.exports = {
     NAME: process.env.DB_NAME,
     PASSWORD: process.env.DB_PASSWORD,
     DIALECT: "postgres",
+    ENV: process.env.ENV || "development",
   },
+  JWT_SECRET: process.env.JWT_SECRET,
+  EXPIRESS_ACCESS_TOKEN: process.env.EXPIRESS_ACCESS_TOKEN,
+  EXPIRESS_REFRESH_TOKEN: process.env.EXPIRESS_REFRESH_TOKEN,
 };
